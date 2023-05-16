@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	tools {
-		maven 'mvn_home'
+		maven 'MVN_HOME' //this is we need to configure in jeninns Global Tool Configuration
 	}
     stages {
         stage('SCM-Checkout') {
