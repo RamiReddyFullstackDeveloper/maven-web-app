@@ -8,7 +8,7 @@ tools {
     stages {
         stage('SCM-Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/RamiReddyFullstackDeveloper/maven-web-app.git'
+                git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/RamiReddyFullstackDeveloper/maven-web-app.git'
             }
         }
         stage('sonar-server') { 
@@ -32,7 +32,7 @@ tools {
         }
         stage('Tomcat-deployment') {
             steps {
-                sshagent(['tomcat-credentials']) {
+                sshagent(['tomcat-cred-ssh']) {
 					sh """
 						scp -o StrictHostKeyChecking=no target/tomcat-demo.war ec2-user@3.110.94.5:/opt/tomcat/webapps/
 						
